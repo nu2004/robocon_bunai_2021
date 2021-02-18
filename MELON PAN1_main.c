@@ -71,7 +71,7 @@ void main(){
 void GOOD_de_gozaru(){				//受信成功時
 	//FLAG_LRは右が1、左が0
 	//FLAG_UDは下が1、上が0
-	RED_LED=0;
+	RED_LED=1;
     GREEN_LED=1;
     
     if(DS3_connect){
