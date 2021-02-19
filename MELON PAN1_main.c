@@ -71,7 +71,7 @@ void main(){
 void GOOD_de_gozaru(){				//受信成功時
 	//FLAG_LRは右が1、左が0
 	//FLAG_UDは下が1、上が0
-	RED_LED=1;
+	RED_LED=0;
     GREEN_LED=1;
     
     if(DS3_connect){
@@ -87,6 +87,12 @@ void GOOD_de_gozaru(){				//受信成功時
         //CSV_end();
     }
     //csv_data++;
+    if(DS_LEFT_UD_signed_VALUE() >= 127){         //前進
+        s_driver1_set_value(make_s_driver_ver1_send_data(MOTOR_FORWARD,MAX1));
+        s_driver2_set_value(make_s_driver_ver1_send_data(MOTOR_FORWARD,MAX2));
+        s_driver3_set_value(make_s_driver_ver1_send_data(MOTOR_FORWARD,MAX3));
+        s_driver4_set_value(make_s_driver_ver1_send_data(MOTOR_FORWARD,MAX4));
+    }
 }
 
 void BAD_de_gozaru(){				//受信失敗時
