@@ -96,5 +96,6 @@ void BAD_de_gozaru(){				//受信失敗時
 
 void always_de_gozaru(){			//いつでも実行(GOOD、BADにくらべ多く実行)
     //CSV_transmit_task_signedint_4data(csv_data,csv_data*2,csv_data*(-1),csv_data*(-2));
+    //tintin
 }
 
