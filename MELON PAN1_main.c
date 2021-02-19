@@ -92,6 +92,7 @@ void GOOD_de_gozaru(){				//受信成功時
 void BAD_de_gozaru(){				//受信失敗時
     GREEN_LED=0;
 	RED_LED=1;
+    //テスト変更
 }
 
 void always_de_gozaru(){			//いつでも実行(GOOD、BADにくらべ多く実行)
