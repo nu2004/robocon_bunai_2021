@@ -93,6 +93,13 @@ void GOOD_de_gozaru(){				//óM¬Œ÷
         s_driver3_set_value(make_s_driver_ver1_send_data(MOTOR_FORWARD,MAX3));
         s_driver4_set_value(make_s_driver_ver1_send_data(MOTOR_FORWARD,MAX4));
     }
+    if(DS_LEFT_UD_signed_VALUE() <= 127){       //Œãi
+        s_driver1_set_value(make_s_driver_ver1_send_data(MOTOR_REVERSE,MAX1));
+        s_driver2_set_value(make_s_driver_ver1_send_data(MOTOR_REVERSE,MAX2));
+        s_driver3_set_value(make_s_driver_ver1_send_data(MOTOR_REVERSE,MAX3));
+        s_driver4_set_value(make_s_driver_ver1_send_data(MOTOR_REVERSE,MAX4));
+       
+    }
 }
 
 void BAD_de_gozaru(){				//óM¸”s
