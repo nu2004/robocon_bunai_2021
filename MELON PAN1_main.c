@@ -93,13 +93,37 @@ void GOOD_de_gozaru(){				//受信成功時
         s_driver3_set_value(make_s_driver_ver1_send_data(MOTOR_FORWARD,MAX3));
         s_driver4_set_value(make_s_driver_ver1_send_data(MOTOR_FORWARD,MAX4));
     }
-    if(DS_LEFT_UD_signed_VALUE() <= 127){       //後進
+    else if(DS_LEFT_UD_signed_VALUE() <= -127){       //後進
         s_driver1_set_value(make_s_driver_ver1_send_data(MOTOR_REVERSE,MAX1));
         s_driver2_set_value(make_s_driver_ver1_send_data(MOTOR_REVERSE,MAX2));
         s_driver3_set_value(make_s_driver_ver1_send_data(MOTOR_REVERSE,MAX3));
         s_driver4_set_value(make_s_driver_ver1_send_data(MOTOR_REVERSE,MAX4));
-       
     }
+    else if(DS_RIGHT_LR_signed_VALUE() <= -126){   //左進
+        s_driver1_set_value(make_s_driver_ver1_send_data(MOTOR_REVERSE,MAX1));
+        s_driver2_set_value(make_s_driver_ver1_send_data(MOTOR_FORWARD,MAX2));
+        s_driver3_set_value(make_s_driver_ver1_send_data(MOTOR_REVERSE,MAX3));
+        s_driver4_set_value(make_s_driver_ver1_send_data(MOTOR_FORWARD,MAX4));
+    }
+    else if(DS_RIGHT_LR_signed_VALUE() >= 127){      //右進
+        s_driver1_set_value(make_s_driver_ver1_send_data(MOTOR_FORWARD,MAX1));
+        s_driver2_set_value(make_s_driver_ver1_send_data(MOTOR_REVERSE,MAX2));
+        s_driver3_set_value(make_s_driver_ver1_send_data(MOTOR_FORWARD,MAX3));
+        s_driver4_set_value(make_s_driver_ver1_send_data(MOTOR_REVERSE,MAX4));
+    }
+     else if(DS_RIGHT_LR_signed_VALUE() <= -127){      //右進
+        s_driver1_set_value(make_s_driver_ver1_send_data(MOTOR_REVERSE,MAX1));
+        s_driver2_set_value(make_s_driver_ver1_send_data(MOTOR_FORWARD,MAX2));
+        s_driver3_set_value(make_s_driver_ver1_send_data(MOTOR_REVERSE,MAX3));
+        s_driver4_set_value(make_s_driver_ver1_send_data(MOTOR_FORWARD,MAX4));
+    }
+    else {      //何も押していないときは停止する
+        s_driver1_set_value(make_s_driver_ver1_send_data(MOTOR_BRAKE,0));
+        s_driver2_set_value(make_s_driver_ver1_send_data(MOTOR_BRAKE,0));
+        s_driver3_set_value(make_s_driver_ver1_send_data(MOTOR_BRAKE,0));
+        s_driver4_set_value(make_s_driver_ver1_send_data(MOTOR_BRAKE,0));
+    }
+    
 }
 
 void BAD_de_gozaru(){				//受信失敗時
